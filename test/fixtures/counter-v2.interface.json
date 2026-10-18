@@ -1,0 +1,110 @@
+{
+  "interface_version": 1,
+  "encoding": "zeno-selector-v1",
+  "code_hash": "9aea87d2764c582dd06e91ec2d7cf2c5c7305eb9dd270898f541faa89d7a07fb",
+  "methods": [
+    {
+      "name": "increment",
+      "selector": "5164a106",
+      "payable": false,
+      "readonly": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "count",
+          "type": "u64"
+        }
+      ],
+      "description": "Adds 1 to the count and returns it."
+    },
+    {
+      "name": "decrement",
+      "selector": "f7a1de2b",
+      "payable": false,
+      "readonly": false,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "count",
+          "type": "u64"
+        }
+      ],
+      "description": "Subtracts 1 from the count and returns it."
+    }
+  ],
+  "on_deposit": null,
+  "events": [],
+  "errors": [
+    {
+      "code": 1,
+      "name": "Overflow",
+      "fields": [],
+      "description": "The count is already 2^64 - 1."
+    },
+    {
+      "code": 2,
+      "name": "Underflow",
+      "fields": [],
+      "description": "The count is already 0."
+    },
+    {
+      "code": -1,
+      "name": "MalformedPayload",
+      "fields": [],
+      "description": "a non-empty payload is shorter than a selector, or its arguments do not decode or do not fill the method's exact length"
+    },
+    {
+      "code": -2,
+      "name": "UnknownSelector",
+      "fields": [],
+      "description": "no method has the payload's selector"
+    },
+    {
+      "code": -3,
+      "name": "NoDepositHandler",
+      "fields": [],
+      "description": "an empty payload reached a contract with no deposit handler"
+    },
+    {
+      "code": -4,
+      "name": "CapExceeded",
+      "fields": [],
+      "description": "an item added to the effects would break a §25.1 cap, or does not fit the effects arena or the output buffer"
+    },
+    {
+      "code": -5,
+      "name": "ClaimAboveDeposit",
+      "fields": [],
+      "description": "claim_deposit(x) with x above the claimable amount"
+    },
+    {
+      "code": -6,
+      "name": "StoredValueDecode",
+      "fields": [],
+      "description": "a stored value fails to decode"
+    },
+    {
+      "code": -8,
+      "name": "Panic",
+      "fields": [],
+      "description": "the module panicked"
+    },
+    {
+      "code": -9,
+      "name": "InvalidRecipient",
+      "fields": [],
+      "description": "withdraw() to an L1 address that is not a user address"
+    }
+  ],
+  "storage": [
+    {
+      "name": "count",
+      "kind": "item",
+      "namespace": "0x01",
+      "key": [],
+      "hashed": false,
+      "value": "u64",
+      "description": "An absent leaf is 0."
+    }
+  ]
+}

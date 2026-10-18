@@ -1,0 +1,1249 @@
+{
+  "calls": [
+    {
+      "name": "chainInfo",
+      "method": "zeno_chainInfo",
+      "params": [
+        1
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "networkName": "test",
+          "chain_id": "fcb8f7eb2b3f4d89e267d0ad7d6012be9adc4d476512bac9fec58a333d665894",
+          "runtimeKind": "WASM",
+          "stfSpecHash": "5f00000000000000000000000000000000000000000000000000000000000000",
+          "status": "OK",
+          "inconsistentAt": null,
+          "profiles": [
+            {
+              "name": "contracts/1",
+              "features": {
+                "deposits": true,
+                "nativeAddresses": false,
+                "ownershipTransfer": true,
+                "payableCalls": true,
+                "storageQuota": true,
+                "upgrade": true
+              },
+              "interfaceEncodings": [
+                "zeno-selector-v1"
+              ]
+            }
+          ],
+          "views": [
+            {
+              "name": "contract",
+              "profile": "contracts/1",
+              "params": [
+                {
+                  "name": "contractId",
+                  "type": "bytes32",
+                  "optional": false
+                }
+              ],
+              "result": [
+                "codeHash",
+                "sourceCodeHash",
+                "upgradePolicy",
+                "owner",
+                "ownerCaller",
+                "quota",
+                "nativeAddress"
+              ]
+            },
+            {
+              "name": "storage",
+              "profile": "contracts/1",
+              "params": [
+                {
+                  "name": "contractId",
+                  "type": "bytes32",
+                  "optional": false
+                },
+                {
+                  "name": "key",
+                  "type": "bytes",
+                  "maxLength": 32,
+                  "optional": false
+                }
+              ],
+              "result": [
+                "present",
+                "value"
+              ]
+            },
+            {
+              "name": "contractsByDeployer",
+              "profile": "contracts/1",
+              "params": [
+                {
+                  "name": "address",
+                  "type": "address",
+                  "optional": false
+                },
+                {
+                  "name": "cursor",
+                  "type": "bytes",
+                  "maxLength": 8,
+                  "optional": true
+                }
+              ],
+              "result": [
+                "contracts",
+                "nextCursor"
+              ]
+            },
+            {
+              "name": "module",
+              "profile": "contracts/1",
+              "params": [
+                {
+                  "name": "sourceCodeHash",
+                  "type": "bytes32",
+                  "optional": false
+                }
+              ],
+              "result": [
+                "sourceCodeHash",
+                "module"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "getHead",
+      "method": "zeno_getHead",
+      "params": [
+        1
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "status": "OK",
+          "inconsistentAt": null,
+          "pending": {
+            "batchId": 3,
+            "lastInputSeq": 13,
+            "postStateRoot": "28ede28211712c77a1a3c3d5b86e34fd83a620436e2dd60dd6cfc9d71d43baad",
+            "verified": true
+          },
+          "latest": {
+            "batchId": 3,
+            "lastInputSeq": 13,
+            "postStateRoot": "28ede28211712c77a1a3c3d5b86e34fd83a620436e2dd60dd6cfc9d71d43baad",
+            "verified": true
+          },
+          "finalized": null
+        }
+      }
+    },
+    {
+      "name": "getBatch latest",
+      "method": "zeno_getBatch",
+      "params": [
+        1
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 3,
+          "verified": true,
+          "firstInputSeq": 13,
+          "lastInputSeq": 13,
+          "preStateRoot": "e956c39a4836001c3886338e09063c010f9324d2d8228fe4069bac2f4f3e5faf",
+          "postStateRoot": "28ede28211712c77a1a3c3d5b86e34fd83a620436e2dd60dd6cfc9d71d43baad",
+          "inputRoot": "424e85487b9fe5131d0a57e32903594e85734ee0f648592aa2ecf2d69e8a5ce7",
+          "receiptRoot": "0c2cf7070d2451b52d7c6da0886eae1ae26a8e62f8915956cc49d2cb2fbd82d7",
+          "eventRoot": "0000000000000000000000000000000000000000000000000000000000000000",
+          "outboxRoot": "0000000000000000000000000000000000000000000000000000000000000000",
+          "daHash": "b7ea09d98399705d59a28dab2ca4c3da8fcb2dfbc172605a6966395cb23defb0",
+          "inputs": [
+            {
+              "globalInputIndex": 13,
+              "sendHash": "0dee000000000000000000000000000000000000000000000000000000000000",
+              "status": "SUCCESS"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "getBatch by id",
+      "method": "zeno_getBatch",
+      "params": [
+        1,
+        0
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 0,
+          "verified": true,
+          "firstInputSeq": 1,
+          "lastInputSeq": 7,
+          "preStateRoot": "0000000000000000000000000000000000000000000000000000000000000000",
+          "postStateRoot": "f818446eae3ebdde2e47001c3ec0eda7cf3604a87f8a1d5e0fa57e80ae159029",
+          "inputRoot": "548aa63a4a837736a0b0d22e26a7bca602a5aa4fa4c7c6fb8f9ef9c37872a800",
+          "receiptRoot": "ea75f4ecdfaeb512d0321c39f7a7acef1965cc3b94922b07e998df76b68d3a32",
+          "eventRoot": "0000000000000000000000000000000000000000000000000000000000000000",
+          "outboxRoot": "0000000000000000000000000000000000000000000000000000000000000000",
+          "daHash": "0d7757801dd818f86159d336c7111e0329e734fa51a4b37b7c23d50345ae6cb6",
+          "inputs": [
+            {
+              "globalInputIndex": 1,
+              "sendHash": "01ee000000000000000000000000000000000000000000000000000000000000",
+              "status": "SUCCESS"
+            },
+            {
+              "globalInputIndex": 2,
+              "sendHash": "02ee000000000000000000000000000000000000000000000000000000000000",
+              "status": "SUCCESS"
+            },
+            {
+              "globalInputIndex": 3,
+              "sendHash": "03ee000000000000000000000000000000000000000000000000000000000000",
+              "status": "SUCCESS"
+            },
+            {
+              "globalInputIndex": 4,
+              "sendHash": "04ee000000000000000000000000000000000000000000000000000000000000",
+              "status": "SUCCESS"
+            },
+            {
+              "globalInputIndex": 5,
+              "sendHash": "05ee000000000000000000000000000000000000000000000000000000000000",
+              "status": "SUCCESS"
+            },
+            {
+              "globalInputIndex": 6,
+              "sendHash": "06ee000000000000000000000000000000000000000000000000000000000000",
+              "status": "SUCCESS"
+            },
+            {
+              "globalInputIndex": 7,
+              "sendHash": "07ee000000000000000000000000000000000000000000000000000000000000",
+              "status": "SUCCESS"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "getReceipt success",
+      "method": "zeno_getReceipt",
+      "params": [
+        "04ee000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 0,
+          "verified": true,
+          "tag": "latest",
+          "globalInputIndex": 4,
+          "sendHash": "04ee000000000000000000000000000000000000000000000000000000000000",
+          "sender": "z16yqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvrvjf7",
+          "receipt": {
+            "inputIndex": 4,
+            "inputHash": "9953f577d662ce73630eaa5d20dfa1b97e539d50b6c0f58f54aa7653c018ee7d",
+            "batchId": 0,
+            "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e",
+            "codeHash": "1ca54c630cf22c9b14e3eeff0e01892c6ad4512d00e001739812b712b7d4e507",
+            "status": "SUCCESS",
+            "gasUsed": 0,
+            "abortCode": 0,
+            "stateDiffHash": "352ea46ef76aaee7807a6a9136645e662bf22ef8f0e0a345bbf2b353398a2930",
+            "returnHash": "7b568fc5fe6689b8fa8ace6485704ee7441ed5e85c508426a721ee23ee962d32",
+            "eventRoot": "0000000000000000000000000000000000000000000000000000000000000000",
+            "eventCount": 0,
+            "outboxRoot": "0000000000000000000000000000000000000000000000000000000000000000",
+            "outboxCount": 0
+          },
+          "returnData": "2f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d1ca54c630cf22c9b14e3eeff0e01892c6ad4512d00e001739812b712b7d4e507",
+          "events": [],
+          "outbox": [],
+          "input": {
+            "kind": "DeployContractFinalize",
+            "inputKind": 4,
+            "sourceAccountBlockHash": "04ee000000000000000000000000000000000000000000000000000000000000",
+            "codeHash": "2f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d"
+          }
+        }
+      }
+    },
+    {
+      "name": "getReceipt unauthorized",
+      "method": "zeno_getReceipt",
+      "params": [
+        "0bee000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 1,
+          "verified": true,
+          "tag": "latest",
+          "globalInputIndex": 11,
+          "sendHash": "0bee000000000000000000000000000000000000000000000000000000000000",
+          "sender": "z16yqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvrvjf7",
+          "receipt": {
+            "inputIndex": 11,
+            "inputHash": "0bdc764a74ad1141b5c311fe5465a2af5315135d4ac90ec0d110e6f5cb96b0dd",
+            "batchId": 1,
+            "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e",
+            "codeHash": "3bc771ef190fd585e5a71b73c2979fbf478fbf48fbb8e0ea2be917a47c4f4c9d",
+            "status": "UNAUTHORIZED",
+            "gasUsed": 0,
+            "abortCode": 0,
+            "stateDiffHash": "0000000000000000000000000000000000000000000000000000000000000000",
+            "returnHash": "0000000000000000000000000000000000000000000000000000000000000000",
+            "eventRoot": "0000000000000000000000000000000000000000000000000000000000000000",
+            "eventCount": 0,
+            "outboxRoot": "0000000000000000000000000000000000000000000000000000000000000000",
+            "outboxCount": 0
+          },
+          "returnData": "",
+          "events": [],
+          "outbox": [],
+          "input": {
+            "kind": "TransferContractOwnership",
+            "inputKind": 6,
+            "sourceAccountBlockHash": "0bee000000000000000000000000000000000000000000000000000000000000",
+            "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e",
+            "newOwner": "z16yqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvrvjf7"
+          }
+        }
+      }
+    },
+    {
+      "name": "getInputs by contract",
+      "method": "zeno_getInputs",
+      "params": [
+        {
+          "domainId": 1,
+          "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e"
+        }
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 3,
+          "verified": true,
+          "items": [
+            {
+              "globalInputIndex": 13,
+              "batchId": 3,
+              "verified": true,
+              "sendHash": "0dee000000000000000000000000000000000000000000000000000000000000",
+              "sender": "z1pcqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqt5gv8y",
+              "inputKind": 6,
+              "receipt": {
+                "status": "SUCCESS",
+                "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e",
+                "gasUsed": 0,
+                "abortCode": 0
+              },
+              "input": {
+                "kind": "TransferContractOwnership",
+                "inputKind": 6,
+                "sourceAccountBlockHash": "0dee000000000000000000000000000000000000000000000000000000000000",
+                "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e",
+                "newOwner": "z1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqsggv2f"
+              }
+            },
+            {
+              "globalInputIndex": 12,
+              "batchId": 2,
+              "verified": true,
+              "sendHash": "0cee000000000000000000000000000000000000000000000000000000000000",
+              "sender": "z1qyqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqfe0wj2",
+              "inputKind": 6,
+              "receipt": {
+                "status": "SUCCESS",
+                "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e",
+                "gasUsed": 0,
+                "abortCode": 0
+              },
+              "input": {
+                "kind": "TransferContractOwnership",
+                "inputKind": 6,
+                "sourceAccountBlockHash": "0cee000000000000000000000000000000000000000000000000000000000000",
+                "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e",
+                "newOwner": "z1pcqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqt5gv8y"
+              }
+            },
+            {
+              "globalInputIndex": 11,
+              "batchId": 1,
+              "verified": true,
+              "sendHash": "0bee000000000000000000000000000000000000000000000000000000000000",
+              "sender": "z16yqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvrvjf7",
+              "inputKind": 6,
+              "receipt": {
+                "status": "UNAUTHORIZED",
+                "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e",
+                "gasUsed": 0,
+                "abortCode": 0
+              },
+              "input": {
+                "kind": "TransferContractOwnership",
+                "inputKind": 6,
+                "sourceAccountBlockHash": "0bee000000000000000000000000000000000000000000000000000000000000",
+                "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e",
+                "newOwner": "z16yqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvrvjf7"
+              }
+            },
+            {
+              "globalInputIndex": 10,
+              "batchId": 1,
+              "verified": true,
+              "sendHash": "0aee000000000000000000000000000000000000000000000000000000000000",
+              "sender": "z1qyqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqfe0wj2",
+              "inputKind": 5,
+              "receipt": {
+                "status": "SUCCESS",
+                "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e",
+                "gasUsed": 0,
+                "abortCode": 0
+              },
+              "input": {
+                "kind": "UpgradeContract",
+                "inputKind": 5,
+                "sourceAccountBlockHash": "0aee000000000000000000000000000000000000000000000000000000000000",
+                "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e",
+                "newCodeHash": "3974dbed3e24cd1849e551026a2f628e31c6f87f18feca4fe139ed5c6a0b75fa"
+              }
+            },
+            {
+              "globalInputIndex": 4,
+              "batchId": 0,
+              "verified": true,
+              "sendHash": "04ee000000000000000000000000000000000000000000000000000000000000",
+              "sender": "z16yqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvrvjf7",
+              "inputKind": 4,
+              "receipt": {
+                "status": "SUCCESS",
+                "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e",
+                "gasUsed": 0,
+                "abortCode": 0
+              },
+              "input": {
+                "kind": "DeployContractFinalize",
+                "inputKind": 4,
+                "sourceAccountBlockHash": "04ee000000000000000000000000000000000000000000000000000000000000",
+                "codeHash": "2f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d"
+              }
+            }
+          ],
+          "nextCursor": null
+        }
+      }
+    },
+    {
+      "name": "getEvents",
+      "method": "zeno_getEvents",
+      "params": [
+        {
+          "domainId": 1
+        }
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 3,
+          "verified": true,
+          "items": [],
+          "nextCursor": null
+        }
+      }
+    },
+    {
+      "name": "getOutbox empty",
+      "method": "zeno_getOutbox",
+      "params": [
+        {
+          "domainId": 1
+        }
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 3,
+          "verified": true,
+          "items": [],
+          "nextCursor": null
+        }
+      }
+    },
+    {
+      "name": "getBundle",
+      "method": "zeno_getBundle",
+      "params": [
+        "0d7757801dd818f86159d336c7111e0329e734fa51a4b37b7c23d50345ae6cb6"
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 0,
+          "verified": true,
+          "daHash": "0d7757801dd818f86159d336c7111e0329e734fa51a4b37b7c23d50345ae6cb6",
+          "bundle": "0000000000000001000000880201ee0000000000000000000000000000000000000000000000000000000000002f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726dd9a974bb444e5f51f806b0bea900573949dd9a559371baf8e038913ea2476b6e000000000000003400000001000000170001010100000000000000000000000000000000000000000000000000007a00010000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000650302ee0000000000000000000000000000000000000000000000000000000000002f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d00000000606954940cdffd6d1ca0881aa9f5a52123241b7b5672004821d67fec2be9f25a000000000000007a00010000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000b6f746865722062797465730000000000000003000000650303ee0000000000000000000000000000000000000000000000000000000000002f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d000000002f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d000000000000007a0001000000000000000300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000340061736d0100000001070160027f7f017e030201000503010001071002066d656d6f727902000372756e00000a0601040042000b0000000000000004000000410404ee0000000000000000000000000000000000000000000000000000000000002f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d0000000459e56d7d973d8301f693c117d056ad26b5269445f029b7a93c177553d121723affffffff000000630059e56d7d973d8301f693c117d056ad26b5269445f029b7a93c177553d121723a0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005bacf8b01c3e81038f1bab2eb51a3223b3e5423d161c8f41d0cd8db6a0f702a7ffffffff00000063005bacf8b01c3e81038f1bab2eb51a3223b3e5423d161c8f41d0cd8db6a0f702a70000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008244b9ff47c65474c581fa64ae51576244f288d73b1936d8c81565d55fcd1be2ffffffff00000063008244b9ff47c65474c581fa64ae51576244f288d73b1936d8c81565d55fcd1be2000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000bf389e8651179479d62be1cbcc85167f8a881aa343e39ec51d6c2bf5bca729cbffffffff0000006300bf389e8651179479d62be1cbcc85167f8a881aa343e39ec51d6c2bf5bca729cb000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001ab00010000000000000004000000000000000000000000000000000000000000000000000000000000000080d50c763dde26c873cc059f70252aacabb9f44b402b9b5c559f3098d04874480000000459e56d7d973d8301f693c117d056ad26b5269445f029b7a93c177553d121723a000000202f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d5bacf8b01c3e81038f1bab2eb51a3223b3e5423d161c8f41d0cd8db6a0f702a7000000203cf7508908edf37a21c5f2fe157815ee073477be9a2dd18e9b224def491cdfde8244b9ff47c65474c581fa64ae51576244f288d73b1936d8c81565d55fcd1be20000000101bf389e8651179479d62be1cbcc85167f8a881aa343e39ec51d6c2bf5bca729cb000000201ca54c630cf22c9b14e3eeff0e01892c6ad4512d00e001739812b712b7d4e5070000000000000000000000402f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d1ca54c630cf22c9b14e3eeff0e01892c6ad4512d00e001739812b712b7d4e50700000000000000000000000000000000000000000000000000000000000000000000000000000005000000880205ee0000000000000000000000000000000000000000000000000000000000002f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d3b552fdc9b613ed4cc2668f65e6ede473caa412b1506deb0706848e7613ffa4f000000000000003400000001000000170001000000000000000000000000000000000000000000000000000000007a0001000000000000000580d50c763dde26c873cc059f70252aacabb9f44b402b9b5c559f3098d048744880d50c763dde26c873cc059f70252aacabb9f44b402b9b5c559f3098d04874480000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006000000650306ee0000000000000000000000000000000000000000000000000000000000002f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d000000002f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d000000000000007a0001000000000000000680d50c763dde26c873cc059f70252aacabb9f44b402b9b5c559f3098d048744880d50c763dde26c873cc059f70252aacabb9f44b402b9b5c559f3098d0487448000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000340061736d0100000001070160027f7f017e030201000503010001071002066d656d6f727902000372756e00000a0601040042000b0000000000000007000000410407ee0000000000000000000000000000000000000000000000000000000000002f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d0000000328f252d85a93edd2b3d81e2241d121f72942a341060c735641a814a65722ed47ffffffff000000a30028f252d85a93edd2b3d81e2241d121f72942a341060c735641a814a65722ed47000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030002458755d7a9bb781d5631be48e17d8b8b314482773fcf09334edd2c4f43b4388b3b0a86dad86e4251b57a1623e98bd5548e20cd578143ed5db378e27c92dc6b2e31bd59aa8bfe014f32d25458252ee94c8c74ea75478f6e8bf9e002d621f530b7ffffffff000000a30031bd59aa8bfe014f32d25458252ee94c8c74ea75478f6e8bf9e002d621f530b7000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030002458755d7a9bb781d5631be48e17d8b8b314482773fcf09334edd2c4f43b4388b3b0a86dad86e4251b57a1623e98bd5548e20cd578143ed5db378e27c92dc6b2ef2bea2644d7a4294a8ce4cc5e8396b967eede67e3489ea51bb249edef4eb9c1fffffffff000000a300f2bea2644d7a4294a8ce4cc5e8396b967eede67e3489ea51bb249edef4eb9c1f000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030002afcf68577daa7a897e2ce6439f16c8483f572df6812b70290e75327781d8c827453f0e7805febeaaba03ccad67bc851343d4255a48a3508f95f241fb38331583000001670001000000000000000780d50c763dde26c873cc059f70252aacabb9f44b402b9b5c559f3098d0487448f818446eae3ebdde2e47001c3ec0eda7cf3604a87f8a1d5e0fa57e80ae1590290000000328f252d85a93edd2b3d81e2241d121f72942a341060c735641a814a65722ed47000000201ca54c630cf22c9b14e3eeff0e01892c6ad4512d00e001739812b712b7d4e50731bd59aa8bfe014f32d25458252ee94c8c74ea75478f6e8bf9e002d621f530b70000000100f2bea2644d7a4294a8ce4cc5e8396b967eede67e3489ea51bb249edef4eb9c1f000000202f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d0000000000000000000000402f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d1ca54c630cf22c9b14e3eeff0e01892c6ad4512d00e001739812b712b7d4e5070000000000000000000000000000000000000000000000000000000000000000"
+        }
+      }
+    },
+    {
+      "name": "getReceiptSidecar",
+      "method": "zeno_getReceiptSidecar",
+      "params": [
+        "0d7757801dd818f86159d336c7111e0329e734fa51a4b37b7c23d50345ae6cb6"
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 0,
+          "verified": true,
+          "daHash": "0d7757801dd818f86159d336c7111e0329e734fa51a4b37b7c23d50345ae6cb6",
+          "sidecar": "0000000700000107000100000000000000015128f11ee231f7f2b65e0b57c5bc4996e7579ba27a6969d7445b140eb13de62500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010700010000000000000002f3c9db9f340c0a1b36ab86a8cc9265e976cd36d3834c307412e98416c1e2c1a800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010700010000000000000003f9629b8af143e4a23c2441b75670c4d3f92d2f65c6e09b4871e37adb05598216000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000107000100000000000000049953f577d662ce73630eaa5d20dfa1b97e539d50b6c0f58f54aa7653c018ee7d0000000000000000f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e1ca54c630cf22c9b14e3eeff0e01892c6ad4512d00e001739812b712b7d4e50700000000000000000000000000352ea46ef76aaee7807a6a9136645e662bf22ef8f0e0a345bbf2b353398a29307b568fc5fe6689b8fa8ace6485704ee7441ed5e85c508426a721ee23ee962d3200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000107000100000000000000055acd84af801966209d185825e03e485cbd91f7e0aff31675f64d187629fc29fd0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001070001000000000000000639a60c2c9d4e8c68cda80639ee5b4d81ec0c4023cd939ae9e1eb26a7d958a342000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000107000100000000000000071113f658e41bfb68eecbc71145add29b9de70c05624c3e63614c0872097b79d20000000000000000b9eac10e37696940600cfd21d308910234941764bb6b3a0c73aafe28a5faff841ca54c630cf22c9b14e3eeff0e01892c6ad4512d00e001739812b712b7d4e5070000000000000000000000000033e50258e4eedf9849c2d14a12a779d0ca7fae965cd387e7e4f1712f96f6f6887b568fc5fe6689b8fa8ace6485704ee7441ed5e85c508426a721ee23ee962d32000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        }
+      }
+    },
+    {
+      "name": "read contract",
+      "method": "zeno_read",
+      "params": [
+        1,
+        "contract",
+        {
+          "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e"
+        }
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 3,
+          "verified": true,
+          "postStateRoot": "28ede28211712c77a1a3c3d5b86e34fd83a620436e2dd60dd6cfc9d71d43baad",
+          "view": "contract",
+          "result": {
+            "codeHash": "3bc771ef190fd585e5a71b73c2979fbf478fbf48fbb8e0ea2be917a47c4f4c9d",
+            "sourceCodeHash": "3974dbed3e24cd1849e551026a2f628e31c6f87f18feca4fe139ed5c6a0b75fa",
+            "upgradePolicy": "IMMUTABLE",
+            "owner": null,
+            "ownerCaller": null,
+            "quota": {
+              "purchased": 0,
+              "used": 0
+            },
+            "nativeAddress": null
+          },
+          "proofs": [
+            {
+              "path": "bf389e8651179479d62be1cbcc85167f8a881aa343e39ec51d6c2bf5bca729cb",
+              "present": true,
+              "value": "3bc771ef190fd585e5a71b73c2979fbf478fbf48fbb8e0ea2be917a47c4f4c9d",
+              "proof": "01bf389e8651179479d62be1cbcc85167f8a881aa343e39ec51d6c2bf5bca729cb2ded59c30ca681cfbf3cebdf22d162f95deb07f36a87b395a3c6ea798200ebcf00000000000000000000000000000000000000000000000000000000000000070003aa04226e3a1da2383ce6ea33af80e19ed2929b72fd7b7873e2ed2f522d4700d0dcb71fdd5c60828d5a7edd837cefcfaac053dc643b80fde9807033efd6f5d0063052328f2b2f455d995575f06b9ad990d11a589d9c36d0d343f77a22484a8c49000000203bc771ef190fd585e5a71b73c2979fbf478fbf48fbb8e0ea2be917a47c4f4c9d"
+            },
+            {
+              "path": "59e56d7d973d8301f693c117d056ad26b5269445f029b7a93c177553d121723a",
+              "present": true,
+              "value": "3974dbed3e24cd1849e551026a2f628e31c6f87f18feca4fe139ed5c6a0b75fa",
+              "proof": "0159e56d7d973d8301f693c117d056ad26b5269445f029b7a93c177553d121723ac38e8872d07607c57c412140c6bb958d0d15cef851a720310a0a70edafc084bb000000000000000000000000000000000000000000000000000000000000000300026d963f79ba81d94d89b893b87547eb3af121b3d0538e61f856b49a1a97183dd26f14d4bdb67c83d17187e256f9de3eff0da92d9298795eee1ce800c4438bed9d000000203974dbed3e24cd1849e551026a2f628e31c6f87f18feca4fe139ed5c6a0b75fa"
+            },
+            {
+              "path": "8244b9ff47c65474c581fa64ae51576244f288d73b1936d8c81565d55fcd1be2",
+              "present": true,
+              "value": "00",
+              "proof": "018244b9ff47c65474c581fa64ae51576244f288d73b1936d8c81565d55fcd1be299863f1413512d0c81030aa9487874e123c578bd32172b0b773b0d8472f80e8b00000000000000000000000000000000000000000000000000000000000000070003f34d8651cb3f9feebb19d408852dbe05ba1f61dc324ea3eb11fb392d0451fffedcb71fdd5c60828d5a7edd837cefcfaac053dc643b80fde9807033efd6f5d0063052328f2b2f455d995575f06b9ad990d11a589d9c36d0d343f77a22484a8c490000000100"
+            },
+            {
+              "path": "5bacf8b01c3e81038f1bab2eb51a3223b3e5423d161c8f41d0cd8db6a0f702a7",
+              "present": false,
+              "value": null,
+              "proof": "005bacf8b01c3e81038f1bab2eb51a3223b3e5423d161c8f41d0cd8db6a0f702a7000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000430003c9893634ff4a1773033e4027ac63ad4738dda9c377bd87218ae895343ad29d7e6d963f79ba81d94d89b893b87547eb3af121b3d0538e61f856b49a1a97183dd26f14d4bdb67c83d17187e256f9de3eff0da92d9298795eee1ce800c4438bed9d"
+            },
+            {
+              "path": "f0a1531ba244d09eb25e4165d5a90c2e0fd90e6a5b194d41deadd26af2536f94",
+              "present": false,
+              "value": null,
+              "proof": "00f0a1531ba244d09eb25e4165d5a90c2e0fd90e6a5b194d41deadd26af2536f94000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000430003814fb2520f1bae0b70b1ed588dcbee905b57945d2384de325c62bd3af0823ab278b69553412a34b280479dbcebbfd9e7debb0f743510b54df3e7c3ec9a0e954f3052328f2b2f455d995575f06b9ad990d11a589d9c36d0d343f77a22484a8c49"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "read contract at batch 0",
+      "method": "zeno_read",
+      "params": [
+        1,
+        "contract",
+        {
+          "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e"
+        },
+        0
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 0,
+          "verified": true,
+          "postStateRoot": "f818446eae3ebdde2e47001c3ec0eda7cf3604a87f8a1d5e0fa57e80ae159029",
+          "view": "contract",
+          "result": {
+            "codeHash": "1ca54c630cf22c9b14e3eeff0e01892c6ad4512d00e001739812b712b7d4e507",
+            "sourceCodeHash": "2f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d",
+            "upgradePolicy": "OWNER_UPGRADEABLE",
+            "owner": "z1qyqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqfe0wj2",
+            "ownerCaller": "3cf7508908edf37a21c5f2fe157815ee073477be9a2dd18e9b224def491cdfde",
+            "quota": {
+              "purchased": 0,
+              "used": 0
+            },
+            "nativeAddress": null
+          },
+          "proofs": [
+            {
+              "path": "bf389e8651179479d62be1cbcc85167f8a881aa343e39ec51d6c2bf5bca729cb",
+              "present": true,
+              "value": "1ca54c630cf22c9b14e3eeff0e01892c6ad4512d00e001739812b712b7d4e507",
+              "proof": "01bf389e8651179479d62be1cbcc85167f8a881aa343e39ec51d6c2bf5bca729cbc56e063cefb2e42d3c30d7ded4b1ac098b2417df89d709b13aba6e7e3ed114ab0000000000000000000000000000000000000000000000000000000000000007000339ca6aa08f62b966c3cf5686ab231b5c15e7ac02b6f1d7c81065f53830f68036dcb71fdd5c60828d5a7edd837cefcfaac053dc643b80fde9807033efd6f5d00697c76df477321601a354f33ed4554893c50a3201e46c1dcfd6ca3df8f70afb81000000201ca54c630cf22c9b14e3eeff0e01892c6ad4512d00e001739812b712b7d4e507"
+            },
+            {
+              "path": "59e56d7d973d8301f693c117d056ad26b5269445f029b7a93c177553d121723a",
+              "present": true,
+              "value": "2f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d",
+              "proof": "0159e56d7d973d8301f693c117d056ad26b5269445f029b7a93c177553d121723a22fb22d90d032b549aaa8018eb9f42e7c00171ce9f10aff6422a90724c91a07f00000000000000000000000000000000000000000000000000000000000000430003efb5bb5d4a220950c8f29711e9938122c10ed856cef6d280e32bffb3e978369d6d963f79ba81d94d89b893b87547eb3af121b3d0538e61f856b49a1a97183dd23cb3f5a2efb8a47f9c0ca9656f7daa5a79a1dab5101450352aa6f44b41f4d57e000000202f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d"
+            },
+            {
+              "path": "8244b9ff47c65474c581fa64ae51576244f288d73b1936d8c81565d55fcd1be2",
+              "present": true,
+              "value": "01",
+              "proof": "018244b9ff47c65474c581fa64ae51576244f288d73b1936d8c81565d55fcd1be216a7725ae9ac4923752d2b4a15a691536f17e8a0ce4c3305380437a46eaa101c00000000000000000000000000000000000000000000000000000000000000070003723034ef0ce8031832fddeb4758805bd5affd371998c51262ff53695d9095057dcb71fdd5c60828d5a7edd837cefcfaac053dc643b80fde9807033efd6f5d00697c76df477321601a354f33ed4554893c50a3201e46c1dcfd6ca3df8f70afb810000000101"
+            },
+            {
+              "path": "5bacf8b01c3e81038f1bab2eb51a3223b3e5423d161c8f41d0cd8db6a0f702a7",
+              "present": true,
+              "value": "3cf7508908edf37a21c5f2fe157815ee073477be9a2dd18e9b224def491cdfde",
+              "proof": "015bacf8b01c3e81038f1bab2eb51a3223b3e5423d161c8f41d0cd8db6a0f702a790c09ab97ff0fcee742f0ffb3eb1735b2ecdbd30fd114a806f2f78425003d329000000000000000000000000000000000000000000000000000000000000004300032f8ac2b11a1f90ac54de02932d7d07d32a193621250b3d61b1efa3fc9988b6936d963f79ba81d94d89b893b87547eb3af121b3d0538e61f856b49a1a97183dd23cb3f5a2efb8a47f9c0ca9656f7daa5a79a1dab5101450352aa6f44b41f4d57e000000203cf7508908edf37a21c5f2fe157815ee073477be9a2dd18e9b224def491cdfde"
+            },
+            {
+              "path": "f0a1531ba244d09eb25e4165d5a90c2e0fd90e6a5b194d41deadd26af2536f94",
+              "present": false,
+              "value": null,
+              "proof": "00f0a1531ba244d09eb25e4165d5a90c2e0fd90e6a5b194d41deadd26af2536f94000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000430003814fb2520f1bae0b70b1ed588dcbee905b57945d2384de325c62bd3af0823ab2afcf68577daa7a897e2ce6439f16c8483f572df6812b70290e75327781d8c82797c76df477321601a354f33ed4554893c50a3201e46c1dcfd6ca3df8f70afb81"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "read contract absent",
+      "method": "zeno_read",
+      "params": [
+        1,
+        "contract",
+        {
+          "contractId": "0000000000000000000000000000000000000000000000000000000000000000"
+        }
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 3,
+          "verified": true,
+          "postStateRoot": "28ede28211712c77a1a3c3d5b86e34fd83a620436e2dd60dd6cfc9d71d43baad",
+          "view": "contract",
+          "result": {
+            "codeHash": null,
+            "sourceCodeHash": null,
+            "upgradePolicy": null,
+            "owner": null,
+            "ownerCaller": null,
+            "quota": null,
+            "nativeAddress": null
+          },
+          "proofs": [
+            {
+              "path": "160d2740d151637d6c6089deee5823edfb3440843b5c93cfbdc4a6e6ae792cae",
+              "present": false,
+              "value": null,
+              "proof": "00160d2740d151637d6c6089deee5823edfb3440843b5c93cfbdc4a6e6ae792cae00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000007000342f960eaf5f287aabe8f820d12457d917897f7c5da46b11a0ad13d7eceb16e6a077eb7bc6604d91c4ac72f96bbaf8a065843bed95182dafe8136e4f8e6e1c1f06f14d4bdb67c83d17187e256f9de3eff0da92d9298795eee1ce800c4438bed9d"
+            },
+            {
+              "path": "f4880987f69ba45810dd4b29e2c25fd94e16a415a79abd852421a3a3c27fb6a4",
+              "present": false,
+              "value": null,
+              "proof": "00f4880987f69ba45810dd4b29e2c25fd94e16a415a79abd852421a3a3c27fb6a4000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000230003cf3b6d162c91e864535955e166dda13605109adbeb0fa7f92dd1b8269df50d2678b69553412a34b280479dbcebbfd9e7debb0f743510b54df3e7c3ec9a0e954f3052328f2b2f455d995575f06b9ad990d11a589d9c36d0d343f77a22484a8c49"
+            },
+            {
+              "path": "bf58b4d5e20db7093da46fc3eafc772ad189f11f1c0c171b435cc8977d746678",
+              "present": false,
+              "value": null,
+              "proof": "00bf58b4d5e20db7093da46fc3eafc772ad189f11f1c0c171b435cc8977d7466780000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000020700046a60438945b11f8d03a5967a2a3b1841e7d4f99e7a7ba5277be9d10fa1e2aca5aa04226e3a1da2383ce6ea33af80e19ed2929b72fd7b7873e2ed2f522d4700d0dcb71fdd5c60828d5a7edd837cefcfaac053dc643b80fde9807033efd6f5d0063052328f2b2f455d995575f06b9ad990d11a589d9c36d0d343f77a22484a8c49"
+            },
+            {
+              "path": "3ee423908f9a06ac6eeb5e81eae6bc16f7b2e560169a882dd883a7d51dc9b0ff",
+              "present": false,
+              "value": null,
+              "proof": "003ee423908f9a06ac6eeb5e81eae6bc16f7b2e560169a882dd883a7d51dc9b0ff0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001b00043b744d8338705340edf3c0201f46162b5e5cf1f8b4c076f0420e9805acb94ec462cc21410b21e1f24ff448ced7b74370d6d4c8d8db1740a67b0844f0abe7ae8b077eb7bc6604d91c4ac72f96bbaf8a065843bed95182dafe8136e4f8e6e1c1f06f14d4bdb67c83d17187e256f9de3eff0da92d9298795eee1ce800c4438bed9d"
+            },
+            {
+              "path": "63b7538055cfa6a70a69f58870ca81cb8c4342f5e2538d8da5b530863a1eef5b",
+              "present": false,
+              "value": null,
+              "proof": "0063b7538055cfa6a70a69f58870ca81cb8c4342f5e2538d8da5b530863a1eef5b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000700032cb9d8c6b0cda690c9dc30655548e6d1712c5072092357baa27ac7b1589e79946d963f79ba81d94d89b893b87547eb3af121b3d0538e61f856b49a1a97183dd26f14d4bdb67c83d17187e256f9de3eff0da92d9298795eee1ce800c4438bed9d"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "read storage",
+      "method": "zeno_read",
+      "params": [
+        1,
+        "storage",
+        {
+          "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e",
+          "key": "00"
+        }
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 3,
+          "verified": true,
+          "postStateRoot": "28ede28211712c77a1a3c3d5b86e34fd83a620436e2dd60dd6cfc9d71d43baad",
+          "view": "storage",
+          "result": {
+            "present": false,
+            "value": null
+          },
+          "proofs": [
+            {
+              "path": "2685869e0fd343515fd3ce7c9c36113dc6556462a37ee3d502fefdda6bfb1d7f",
+              "present": false,
+              "value": null,
+              "proof": "002685869e0fd343515fd3ce7c9c36113dc6556462a37ee3d502fefdda6bfb1d7f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001b0004125e3b4f3e11c4234e45074f77cfd108ee0a03a89340fe6115b66c05e2cc9ea3a9a36b7078131e4cd52a3012787a856aafa49f9bb865db1e09ad730b3182af57077eb7bc6604d91c4ac72f96bbaf8a065843bed95182dafe8136e4f8e6e1c1f06f14d4bdb67c83d17187e256f9de3eff0da92d9298795eee1ce800c4438bed9d"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "read contractsByDeployer",
+      "method": "zeno_read",
+      "params": [
+        1,
+        "contractsByDeployer",
+        {
+          "address": "z16yqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvrvjf7"
+        }
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 3,
+          "verified": true,
+          "postStateRoot": "28ede28211712c77a1a3c3d5b86e34fd83a620436e2dd60dd6cfc9d71d43baad",
+          "view": "contractsByDeployer",
+          "result": {
+            "contracts": [
+              {
+                "contractId": "f3c4c88ab4e95744fba132e39405151c44341d971d5421d466a3b43c85c94a8e",
+                "sendHash": "04ee000000000000000000000000000000000000000000000000000000000000",
+                "globalInputIndex": 4,
+                "batchId": 0
+              }
+            ],
+            "nextCursor": null
+          },
+          "proofs": []
+        }
+      }
+    },
+    {
+      "name": "read module",
+      "method": "zeno_read",
+      "params": [
+        1,
+        "module",
+        {
+          "sourceCodeHash": "2f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d"
+        }
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 3,
+          "verified": true,
+          "postStateRoot": "28ede28211712c77a1a3c3d5b86e34fd83a620436e2dd60dd6cfc9d71d43baad",
+          "view": "module",
+          "result": {
+            "sourceCodeHash": "2f4180b7b1f30eaf6b84c869b93ae42edf95c6befa85becb29bf2e9d0852726d",
+            "module": "0061736d0100000001070160027f7f017e030201000503010001071002066d656d6f727902000372756e00000a0601040042000b"
+          },
+          "proofs": []
+        }
+      }
+    },
+    {
+      "name": "getStateAt",
+      "method": "zeno_getStateAt",
+      "params": [
+        1,
+        "bf389e8651179479d62be1cbcc85167f8a881aa343e39ec51d6c2bf5bca729cb"
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 3,
+          "verified": true,
+          "postStateRoot": "28ede28211712c77a1a3c3d5b86e34fd83a620436e2dd60dd6cfc9d71d43baad",
+          "path": "bf389e8651179479d62be1cbcc85167f8a881aa343e39ec51d6c2bf5bca729cb",
+          "present": true,
+          "value": "3bc771ef190fd585e5a71b73c2979fbf478fbf48fbb8e0ea2be917a47c4f4c9d"
+        }
+      }
+    },
+    {
+      "name": "getProof",
+      "method": "zeno_getProof",
+      "params": [
+        1,
+        [
+          "bf389e8651179479d62be1cbcc85167f8a881aa343e39ec51d6c2bf5bca729cb"
+        ]
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 3,
+          "verified": true,
+          "postStateRoot": "28ede28211712c77a1a3c3d5b86e34fd83a620436e2dd60dd6cfc9d71d43baad",
+          "proofs": [
+            {
+              "path": "bf389e8651179479d62be1cbcc85167f8a881aa343e39ec51d6c2bf5bca729cb",
+              "present": true,
+              "value": "3bc771ef190fd585e5a71b73c2979fbf478fbf48fbb8e0ea2be917a47c4f4c9d",
+              "proof": "01bf389e8651179479d62be1cbcc85167f8a881aa343e39ec51d6c2bf5bca729cb2ded59c30ca681cfbf3cebdf22d162f95deb07f36a87b395a3c6ea798200ebcf00000000000000000000000000000000000000000000000000000000000000070003aa04226e3a1da2383ce6ea33af80e19ed2929b72fd7b7873e2ed2f522d4700d0dcb71fdd5c60828d5a7edd837cefcfaac053dc643b80fde9807033efd6f5d0063052328f2b2f455d995575f06b9ad990d11a589d9c36d0d343f77a22484a8c49000000203bc771ef190fd585e5a71b73c2979fbf478fbf48fbb8e0ea2be917a47c4f4c9d"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "error unknown domain",
+      "method": "zeno_getHead",
+      "params": [
+        99
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": -32001,
+          "message": "unknown domain 99"
+        }
+      }
+    },
+    {
+      "name": "error receipt not found",
+      "method": "zeno_getReceipt",
+      "params": [
+        "c8ee000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": -32004,
+          "message": "send c8ee000000000000000000000000000000000000000000000000000000000000 not found"
+        }
+      }
+    },
+    {
+      "name": "error unknown view",
+      "method": "zeno_read",
+      "params": [
+        1,
+        "nope",
+        {}
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": -32005,
+          "message": "the domain has no such view"
+        }
+      }
+    },
+    {
+      "name": "error invalid params",
+      "method": "zeno_getHead",
+      "params": [],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": -32602,
+          "message": "invalid params: want 1 to 1 parameters, got 0"
+        }
+      }
+    },
+    {
+      "name": "error method not found",
+      "method": "zeno_nope",
+      "params": [],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": -32601,
+          "message": "method not found"
+        }
+      }
+    },
+    {
+      "name": "error simulation disabled",
+      "method": "zeno_simulate",
+      "params": [
+        1,
+        {}
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": -32006,
+          "message": "simulation is disabled"
+        }
+      }
+    },
+    {
+      "name": "error tag unavailable",
+      "method": "zeno_getBatch",
+      "params": [
+        1,
+        "finalized"
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": -32004,
+          "message": "no batch is finalized yet"
+        }
+      }
+    },
+    {
+      "name": "outbox getBatch",
+      "method": "zeno_getBatch",
+      "params": [
+        1,
+        0
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 0,
+          "verified": true,
+          "firstInputSeq": 1,
+          "lastInputSeq": 2,
+          "preStateRoot": "0000000000000000000000000000000000000000000000000000000000000000",
+          "postStateRoot": "0000000000000000000000000000000000000000000000000000000000000000",
+          "inputRoot": "53d9944468b6a73dfd658d0e1cd6af23977d7e9943775d8a37a3c0cce9d7d1e8",
+          "receiptRoot": "4b7874ad115b269393150925183390ab2807a87ab48f78b214616f283af8be30",
+          "eventRoot": "0000000000000000000000000000000000000000000000000000000000000000",
+          "outboxRoot": "ba94ed80956c8dee9d89273eb34225fefbd3a2eb9c3e8e951c550ea975b56e02",
+          "daHash": "af9b24bf3b8d1d8cf1c084fa0eea4feee3a2225589042115222b9a1654903110",
+          "inputs": [
+            {
+              "globalInputIndex": 1,
+              "sendHash": "01ee000000000000000000000000000000000000000000000000000000000000",
+              "status": "SUCCESS"
+            },
+            {
+              "globalInputIndex": 2,
+              "sendHash": "02ee000000000000000000000000000000000000000000000000000000000000",
+              "status": "SUCCESS"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "outbox getOutbox",
+      "method": "zeno_getOutbox",
+      "params": [
+        {
+          "domainId": 1,
+          "toBatch": 0
+        }
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 0,
+          "verified": true,
+          "items": [
+            {
+              "batchId": 0,
+              "verified": true,
+              "outboxId": "0d45b1cbe8ea6eb2af458de11c584b51cb9567e08cfdecfa452d8164e47edaca",
+              "sourceContract": "c000000000000000000000000000000000000000000000000000000000000000",
+              "inputIndex": 2,
+              "outboxIndex": 1,
+              "kind": "L2_DELIVERY",
+              "targetContract": "c100000000000000000000000000000000000000000000000000000000000000",
+              "recipient": null,
+              "assetId": null,
+              "amount": null,
+              "payload": "0201"
+            },
+            {
+              "batchId": 0,
+              "verified": true,
+              "outboxId": "82f0f71495c76f037f116cf07179e0989f18662c50fb6255d7cc948cf70310fc",
+              "sourceContract": "c000000000000000000000000000000000000000000000000000000000000000",
+              "inputIndex": 2,
+              "outboxIndex": 0,
+              "kind": "L2_DELIVERY",
+              "targetContract": "c100000000000000000000000000000000000000000000000000000000000000",
+              "recipient": null,
+              "assetId": null,
+              "amount": null,
+              "payload": "0200"
+            },
+            {
+              "batchId": 0,
+              "verified": true,
+              "outboxId": "f6050bec62c91a132f922938bc291a2b2369552daee9e70d74ee57142e6114b3",
+              "sourceContract": "c000000000000000000000000000000000000000000000000000000000000000",
+              "inputIndex": 1,
+              "outboxIndex": 1,
+              "kind": "L2_DELIVERY",
+              "targetContract": "c100000000000000000000000000000000000000000000000000000000000000",
+              "recipient": null,
+              "assetId": null,
+              "amount": null,
+              "payload": "0101"
+            },
+            {
+              "batchId": 0,
+              "verified": true,
+              "outboxId": "d8b8869b123f24879b00f819cc2a580fbca7414580a1205a013002cbc77a46a2",
+              "sourceContract": "c000000000000000000000000000000000000000000000000000000000000000",
+              "inputIndex": 1,
+              "outboxIndex": 0,
+              "kind": "L2_DELIVERY",
+              "targetContract": "c100000000000000000000000000000000000000000000000000000000000000",
+              "recipient": null,
+              "assetId": null,
+              "amount": null,
+              "payload": "0100"
+            }
+          ],
+          "nextCursor": null
+        }
+      }
+    },
+    {
+      "name": "outbox getOutboxProof 0",
+      "method": "zeno_getOutboxProof",
+      "params": [
+        "d8b8869b123f24879b00f819cc2a580fbca7414580a1205a013002cbc77a46a2"
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 0,
+          "verified": true,
+          "tag": "latest",
+          "outboxId": "d8b8869b123f24879b00f819cc2a580fbca7414580a1205a013002cbc77a46a2",
+          "outboxRoot": "ba94ed80956c8dee9d89273eb34225fefbd3a2eb9c3e8e951c550ea975b56e02",
+          "message": "c00000000000000000000000000000000000000000000000000000000000000000000000000000010000000000c100000000000000000000000000000000000000000000000000000000000000000000020100",
+          "inclusionProof": "000000020199aa72405edcbfb63477d0ab914a4913e9c7ebfcfe77ef5ee2b00ead99a1a6ef010eeaea42ed5e252c9a88e2072c64800a48da5557bbd69fd78b623669b0352408",
+          "decoded": {
+            "outboxId": "d8b8869b123f24879b00f819cc2a580fbca7414580a1205a013002cbc77a46a2",
+            "sourceContract": "c000000000000000000000000000000000000000000000000000000000000000",
+            "inputIndex": 1,
+            "outboxIndex": 0,
+            "kind": "L2_DELIVERY",
+            "targetContract": "c100000000000000000000000000000000000000000000000000000000000000",
+            "recipient": null,
+            "assetId": null,
+            "amount": null,
+            "payload": "0100"
+          },
+          "processedOutbox": false
+        }
+      }
+    },
+    {
+      "name": "outbox getOutboxProof 1",
+      "method": "zeno_getOutboxProof",
+      "params": [
+        "f6050bec62c91a132f922938bc291a2b2369552daee9e70d74ee57142e6114b3"
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 0,
+          "verified": true,
+          "tag": "latest",
+          "outboxId": "f6050bec62c91a132f922938bc291a2b2369552daee9e70d74ee57142e6114b3",
+          "outboxRoot": "ba94ed80956c8dee9d89273eb34225fefbd3a2eb9c3e8e951c550ea975b56e02",
+          "message": "c00000000000000000000000000000000000000000000000000000000000000000000000000000010000000100c100000000000000000000000000000000000000000000000000000000000000000000020101",
+          "inclusionProof": "0000000200bdc758b31c8481855bd4a51f026f91e5b8a42cc9dc125e3db0b57ee3ecf496b7010eeaea42ed5e252c9a88e2072c64800a48da5557bbd69fd78b623669b0352408",
+          "decoded": {
+            "outboxId": "f6050bec62c91a132f922938bc291a2b2369552daee9e70d74ee57142e6114b3",
+            "sourceContract": "c000000000000000000000000000000000000000000000000000000000000000",
+            "inputIndex": 1,
+            "outboxIndex": 1,
+            "kind": "L2_DELIVERY",
+            "targetContract": "c100000000000000000000000000000000000000000000000000000000000000",
+            "recipient": null,
+            "assetId": null,
+            "amount": null,
+            "payload": "0101"
+          },
+          "processedOutbox": false
+        }
+      }
+    },
+    {
+      "name": "outbox getOutboxProof 2",
+      "method": "zeno_getOutboxProof",
+      "params": [
+        "82f0f71495c76f037f116cf07179e0989f18662c50fb6255d7cc948cf70310fc"
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 0,
+          "verified": true,
+          "tag": "latest",
+          "outboxId": "82f0f71495c76f037f116cf07179e0989f18662c50fb6255d7cc948cf70310fc",
+          "outboxRoot": "ba94ed80956c8dee9d89273eb34225fefbd3a2eb9c3e8e951c550ea975b56e02",
+          "message": "c00000000000000000000000000000000000000000000000000000000000000000000000000000020000000000c100000000000000000000000000000000000000000000000000000000000000000000020200",
+          "inclusionProof": "00000002011041c4d1fdeea82f260d84f07c888cefaf4ca63ed350ff167b267b1764ff1f0500e54aa5de02c3b8a0ca4d495924baa54d5e77d8791dc2528af241f67a623b1fa7",
+          "decoded": {
+            "outboxId": "82f0f71495c76f037f116cf07179e0989f18662c50fb6255d7cc948cf70310fc",
+            "sourceContract": "c000000000000000000000000000000000000000000000000000000000000000",
+            "inputIndex": 2,
+            "outboxIndex": 0,
+            "kind": "L2_DELIVERY",
+            "targetContract": "c100000000000000000000000000000000000000000000000000000000000000",
+            "recipient": null,
+            "assetId": null,
+            "amount": null,
+            "payload": "0200"
+          },
+          "processedOutbox": false
+        }
+      }
+    },
+    {
+      "name": "outbox getOutboxProof 3",
+      "method": "zeno_getOutboxProof",
+      "params": [
+        "0d45b1cbe8ea6eb2af458de11c584b51cb9567e08cfdecfa452d8164e47edaca"
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "result": {
+          "domainId": 1,
+          "batchId": 0,
+          "verified": true,
+          "tag": "latest",
+          "outboxId": "0d45b1cbe8ea6eb2af458de11c584b51cb9567e08cfdecfa452d8164e47edaca",
+          "outboxRoot": "ba94ed80956c8dee9d89273eb34225fefbd3a2eb9c3e8e951c550ea975b56e02",
+          "message": "c00000000000000000000000000000000000000000000000000000000000000000000000000000020000000100c100000000000000000000000000000000000000000000000000000000000000000000020201",
+          "inclusionProof": "0000000200603a8a8a9c41375dc607992f614ee0ca5b0af6794ef434f4b3d2b690f9daec1100e54aa5de02c3b8a0ca4d495924baa54d5e77d8791dc2528af241f67a623b1fa7",
+          "decoded": {
+            "outboxId": "0d45b1cbe8ea6eb2af458de11c584b51cb9567e08cfdecfa452d8164e47edaca",
+            "sourceContract": "c000000000000000000000000000000000000000000000000000000000000000",
+            "inputIndex": 2,
+            "outboxIndex": 1,
+            "kind": "L2_DELIVERY",
+            "targetContract": "c100000000000000000000000000000000000000000000000000000000000000",
+            "recipient": null,
+            "assetId": null,
+            "amount": null,
+            "payload": "0201"
+          },
+          "processedOutbox": false
+        }
+      }
+    },
+    {
+      "name": "error outbox not found",
+      "method": "zeno_getOutboxProof",
+      "params": [
+        "0000000000000000000000000000000000000000000000000000000000000000"
+      ],
+      "response": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "error": {
+          "code": -32004,
+          "message": "outbox message 0000000000000000000000000000000000000000000000000000000000000000 not found"
+        }
+      }
+    }
+  ]
+}

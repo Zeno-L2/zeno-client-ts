@@ -1,0 +1,58 @@
+{
+  "name": "zeno-client",
+  "version": "0.1.0",
+  "description": "TypeScript client for the Zeno L2 on Zenon: wire formats, derivations, decoders and the gateway client.",
+  "author": {
+    "name": "digitalSloth",
+    "url": "https://github.com/digitalSloth"
+  },
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": "^22.23.0 || ^24.17.0 || >=26.1.0"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run lint && tsc",
+    "prepare": "tsc",
+    "clean": "node -e \"const { rmSync } = require('fs'); ['coverage', 'dist'].forEach(p => rmSync(p, { recursive: true, force: true }))\"",
+    "lint": "eslint src test",
+    "lint:fix": "eslint src test --fix",
+    "test": "mocha -r tsx 'test/**/*.spec.ts'",
+    "typecheck": "tsc --noEmit -p tsconfig.eslint.json"
+  },
+  "dependencies": {
+    "@noble/hashes": "^1.8.0"
+  },
+  "peerDependencies": {
+    "znn-typescript-sdk": ">=1.0.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.26.0",
+    "@types/chai": "^4.3.16",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^22.15.0",
+    "@types/ws": "^8.5.0",
+    "chai": "^5.2.0",
+    "eslint": "^9.26.0",
+    "globals": "^16.1.0",
+    "mocha": "^11.2.0",
+    "tsx": "^4.22.4",
+    "typescript": "^5.4.5",
+    "typescript-eslint": "^8.32.0",
+    "ws": "^8.18.0",
+    "znn-typescript-sdk": "github:digitalSloth/znn-typescript-sdk#e3b75183440f8e6543511f7a55e6c66e5736014e"
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "interface_version": 1,
+  "encoding": "zeno-selector-v1",
+  "code_hash": "f7de3e6f84434ce1ade0c45d91c0720c36d2892db3eef80c1e742717753569ff",
+  "methods": [
+    {
+      "name": "withdraw",
+      "selector": "24b2e5fc",
+      "payable": false,
+      "readonly": false,
+      "inputs": [
+        {
+          "name": "asset",
+          "type": "bytes32"
+        },
+        {
+          "name": "amount",
+          "type": "u256"
+        },
+        {
+          "name": "l1_recipient",
+          "type": "l1Address"
+        }
+      ],
+      "outputs": [],
+      "description": "Debits the caller's balance of the asset and registers a withdrawal of the amount to the L1 recipient."
+    }
+  ],
+  "on_deposit": {
+    "name": "deposit",
+    "outputs": []
+  },
+  "events": [
+    {
+      "name": "Deposited",
+      "topic": "c051ad8548248b8eb443710f48ac39cd1fa8bc890227edc63abb664fe1ddb6f9",
+      "fields": [
+        {
+          "name": "account",
+          "type": "hash",
+          "indexed": true
+        },
+        {
+          "name": "asset",
+          "type": "bytes32",
+          "indexed": true
+        },
+        {
+          "name": "amount",
+          "type": "u256",
+          "indexed": false
+        }
+      ],
+      "description": "A deposit credited to the account's balance."
+    },
+    {
+      "name": "Withdrawn",
+      "topic": "9654e53657d333d8168f63fb6a91833d2b5c81e270adcee2bac1ea548b99e9e1",
+      "fields": [
+        {
+          "name": "account",
+          "type": "hash",
+          "indexed": true
+        },
+        {
+          "name": "asset",
+          "type": "bytes32",
+          "indexed": true
+        },
+        {
+          "name": "amount",
+          "type": "u256",
+          "indexed": false
+        },
+        {
+          "name": "l1_recipient",
+          "type": "l1Address",
+          "indexed": false
+        }
+      ],
+      "description": "A withdrawal debited from the account's balance and registered for the L1 recipient."
+    }
+  ],
+  "errors": [
+    {
+      "code": 1,
+      "name": "InsufficientBalance",
+      "fields": [
+        {
+          "name": "asset",
+          "type": "bytes32"
+        },
+        {
+          "name": "requested",
+          "type": "u256"
+        },
+        {
+          "name": "available",
+          "type": "u256"
+        }
+      ],
+      "description": "The caller's balance of the asset is below the requested amount."
+    },
+    {
+      "code": 2,
+      "name": "BalanceOverflow",
+      "fields": [],
+      "description": "Crediting the deposit would overflow the u256 balance."
+    },
+    {
+      "code": 3,
+      "name": "ZeroAmount",
+      "fields": [],
+      "description": "The withdrawal amount is zero."
+    },
+    {
+      "code": 4,
+      "name": "InvalidRecipient",
+      "fields": [],
+      "description": "The recipient is not a user address (first byte 0x00, not all zero)."
+    },
+    {
+      "code": -1,
+      "name": "MalformedPayload",
+      "fields": [],
+      "description": "a non-empty payload is shorter than a selector, or its arguments do not decode or do not fill the method's exact length"
+    },
+    {
+      "code": -2,
+      "name": "UnknownSelector",
+      "fields": [],
+      "description": "no method has the payload's selector"
+    },
+    {
+      "code": -4,
+      "name": "CapExceeded",
+      "fields": [],
+      "description": "an item added to the effects would break a §25.1 cap, or does not fit the effects arena or the output buffer"
+    },
+    {
+      "code": -5,
+      "name": "ClaimAboveDeposit",
+      "fields": [],
+      "description": "claim_deposit(x) with x above the claimable amount"
+    },
+    {
+      "code": -6,
+      "name": "StoredValueDecode",
+      "fields": [],
+      "description": "a stored value fails to decode"
+    },
+    {
+      "code": -8,
+      "name": "Panic",
+      "fields": [],
+      "description": "the module panicked"
+    },
+    {
+      "code": -9,
+      "name": "InvalidRecipient",
+      "fields": [],
+      "description": "withdraw() to an L1 address that is not a user address"
+    }
+  ],
+  "storage": [
+    {
+      "name": "balances",
+      "kind": "map",
+      "namespace": "0x01",
+      "key": [
+        {
+          "name": "account",
+          "type": "hash"
+        },
+        {
+          "name": "asset",
+          "type": "bytes32"
+        }
+      ],
+      "hashed": true,
+      "value": "u256",
+      "description": "An absent leaf is a zero balance."
+    }
+  ]
+}
